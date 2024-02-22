@@ -1,7 +1,18 @@
+using Application;
 using Application.Interfaces;
-using Application.Services;
 using BlazorApp.Components;
-using GuerrillaNtp;
+using BlazorApp.HostedServices;
+using Infrastructure;
+using Infrastructure.Options;
+using System.Globalization;
+
+//CultureInfo cultureInfo = new("it-IT", false);
+
+var cultureInfo = new CultureInfo("it-IT");
+cultureInfo.NumberFormat.CurrencySymbol = "€";
+
+CultureInfo.DefaultThreadCurrentCulture = cultureInfo;
+CultureInfo.DefaultThreadCurrentUICulture = cultureInfo;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -9,31 +20,30 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
-builder.Services.AddTransient<IBondFetcher, BondFetcher>();
-builder.Services.AddTransient<IBondRepository, BondRepository>();
-builder.Services.AddTransient<BondService>();
-builder.Services.AddTransient<NtpClock>();
-builder.Services.AddTransient<NtpResponse>();
-builder.Services.AddAutoMapper(typeof(AutoMapperProfile));
+// add sevices from different layers
+builder.Services.AddInfrastructureServices();
+builder.Services.AddApplicationServices();
 
-//add hosted service
-//builder.Services.AddHostedService<TimedDataFetcher>();
+builder.Services.Configure<FetcherOptions>(
+    builder.Configuration.GetSection(FetcherOptions.Key));
+
+builder.Services.Configure<DatabaseOptions>(
+    builder.Configuration.GetSection(DatabaseOptions.Key));
+
+//add hosted service to periodically fetch new data
+builder.Services.AddHostedService<TimedDataFetcher>();  //TEMPORARILY COMMENTED OUT TO AVOID CONSTANT FETCHING AT EVERY LAUNCH
 
 var app = builder.Build();
 
 // check db and tables existence
 IBondRepository bondRepository = app.Services.GetRequiredService<IBondRepository>();
-bondRepository.CheckDatabaseExistence();
-bondRepository.CheckTablesExistence();
-
-// initialize the periodic fetching of data
-
+bondRepository.CreateDatabaseIfNotExists();
+bondRepository.CreateTablesIfNotExists();
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error", createScopeForErrors: true);
-    // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
     app.UseHsts();
 }
 
