@@ -6,7 +6,6 @@ using Infrastructure;
 using Infrastructure.Options;
 using System.Globalization;
 
-//CultureInfo cultureInfo = new("it-IT", false);
 
 var cultureInfo = new CultureInfo("it-IT");
 cultureInfo.NumberFormat.CurrencySymbol = "€";

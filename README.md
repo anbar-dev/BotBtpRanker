@@ -1,7 +1,8 @@
 # BotBtpRanker
 
-This C# private project extracts data related to Italian government bonds (BOT and BTP) from free resources and stores it into a SQL Server database.
+This C# project extracts data related to Italian government bonds (BOT and BTP) from free resources and stores it into a SQL Server database.
 It provides functionality to retrieve all active bonds at any specific time and sort them by their yield to maturity (feature usually not provided on other platforms), aiding in investment decision-making.
+The UI is a Blazor Web App.
 
 ## Why use BotBtpRanker?
 
@@ -13,7 +14,7 @@ Most websites listing these instruments do not provide this feature (at least no
 
 - **Data Extraction**: Extracts Italian government bond data (BOT and BTP) from a reliable data source.
 - **Database Storage**: Stores the extracted bond data into a SQL Server database for easy retrieval and management.
-- **Dynamic Sorting**: Sorts the active bonds based on their yield to maturity, providing users with insights into investment options.
+- **Dynamic Sorting**: Can sort the current active bonds based on their yield to maturity, expiration date, price or yearly coupon, providing users with insights into investment options.
 
 ## Usage
 
@@ -21,6 +22,7 @@ TBD
 
 ## Requirements
 
+- (Docker)
 - .NET Framework (compatible version)
 - SQL Server
 - Internet connection for data extraction
