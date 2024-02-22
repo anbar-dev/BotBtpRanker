@@ -45,6 +45,16 @@ To use this setup, follow these steps:
 ## Screenshots
 ![Home](https://raw.githubusercontent.com/andrea-baragiola/App-screenshots/main/BotBtpRanker-Bot.png)
 
+https://raw.githubusercontent.com/andrea-baragiola/App-screenshots/main/BotBtpRanker-Btp.png
+https://raw.githubusercontent.com/andrea-baragiola/App-screenshots/main/BotBtpRanker-Home.png
+
+<details>
+  <summary>The title of the image group</summary>
+  <img src="https://raw.githubusercontent.com/andrea-baragiola/App-screenshots/main/BotBtpRanker-Home.png" alt="image-description"/>
+  <img src="https://raw.githubusercontent.com/andrea-baragiola/App-screenshots/main/BotBtpRanker-Btp.png" alt="image-description"/>
+  <img src="https://raw.githubusercontent.com/andrea-baragiola/App-screenshots/main/BotBtpRanker-Bot.png" alt="image-description"/>
+</details>
+
 
 ## Contributing
 
