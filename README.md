@@ -16,8 +16,6 @@ Most websites listing these instruments do not provide this feature (at least no
 - **Database Storage**: Stores the extracted bond data into a SQL Server database for easy retrieval and management.
 - **Dynamic Sorting**: Can sort the current active bonds based on their yield to maturity, expiration date, price or yearly coupon, providing users with insights into investment options.
 
-# README
-
 ## Usage
 
 To use this setup, follow these steps:
@@ -43,6 +41,9 @@ To use this setup, follow these steps:
 
 - Docker
 - Internet connection (for downloading Docker images if not already cached)
+
+## Screenshots
+![Home](https://raw.githubusercontent.com/andrea-baragiola/App-screenshots/main/BotBtpRanker-Bot.png)
 
 
 ## Contributing
