@@ -9,6 +9,12 @@ The UI is a Blazor Web App.
 **To quickly find the Italian government bonds with the highest yield to maturity.**
 Most websites listing these instruments do not provide this feature (at least not for free).
 
+## Screenshots
+<div style="display: flex; justify-content: space-between;">
+    <img src="https://raw.githubusercontent.com/andrea-baragiola/App-screenshots/main/BotBtpRanker-Home.png" alt="Home" width="30%">
+    <img src="https://raw.githubusercontent.com/andrea-baragiola/App-screenshots/main/BotBtpRanker-Bot.png" alt="Bot" width="30%">
+    <img src="https://raw.githubusercontent.com/andrea-baragiola/App-screenshots/main/BotBtpRanker-Btp.png" alt="Btp" width="30%">
+</div>
 
 ## Features
 
@@ -18,13 +24,13 @@ Most websites listing these instruments do not provide this feature (at least no
 
 ## Usage
 
-To use this setup, follow these steps:
+To use this, follow these steps:
 
 1. Ensure you have Docker installed on your machine.
 2. Clone this repository to your local machine by running the following command:
 
     ```bash
-    https://github.com/andrea-baragiola/BotBtpRanker.git
+    git clone https://github.com/andrea-baragiola/BotBtpRanker.git
     ```
 
 3. Open a terminal window inside the root directory of the cloned repository
@@ -41,14 +47,6 @@ To use this setup, follow these steps:
 
 - Docker
 - Internet connection (for downloading Docker images if not already cached)
-
-## Screenshots
-<div style="display: flex; justify-content: space-between;">
-    <img src="https://raw.githubusercontent.com/andrea-baragiola/App-screenshots/main/BotBtpRanker-Home.png" alt="Image 1" width="30%">
-    <img src="https://raw.githubusercontent.com/andrea-baragiola/App-screenshots/main/BotBtpRanker-Home.png" alt="Image 3" width="30%">
-    <img src="https://raw.githubusercontent.com/andrea-baragiola/App-screenshots/main/BotBtpRanker-Home.png" alt="Image 2" width="30%">
-</div>
-
 
 ## Contributing
 
