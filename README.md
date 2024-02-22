@@ -43,13 +43,6 @@ To use this setup, follow these steps:
 - Internet connection (for downloading Docker images if not already cached)
 
 ## Screenshots
-<details>
-  <summary><strong>Click here to see screenshots</strong></summary>
-  <img src="https://raw.githubusercontent.com/andrea-baragiola/App-screenshots/main/BotBtpRanker-Home.png" alt="image-description"/>
-  <img src="https://raw.githubusercontent.com/andrea-baragiola/App-screenshots/main/BotBtpRanker-Btp.png" alt="image-description"/>
-  <img src="https://raw.githubusercontent.com/andrea-baragiola/App-screenshots/main/BotBtpRanker-Bot.png" alt="image-description"/>
-</details>
-
 <div style="display: flex; justify-content: space-between;">
     <img src="https://raw.githubusercontent.com/andrea-baragiola/App-screenshots/main/BotBtpRanker-Home.png" alt="Image 1" width="30%">
     <img src="https://raw.githubusercontent.com/andrea-baragiola/App-screenshots/main/BotBtpRanker-Home.png" alt="Image 3" width="30%">
