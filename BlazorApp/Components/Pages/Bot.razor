@@ -1,0 +1,26 @@
+﻿@page "/bot"
+@using BlazorApp.Components.Pieces
+
+<PageTitle>BOT</PageTitle>
+
+<div class="container-fluid text-primary mb-lg-5">
+    <h1>BOTs (Buoni ordinari del Tesoro)</h1>
+    <p>
+        Bot, short for "Buoni Ordinari del Tesoro," represents a type of short-term Italian government bond.
+        These bonds are typically issued with maturities ranging from three months to one year, making them 
+        popular among investors seeking relatively low-risk investment opportunities with a short investment horizon.
+    </p>
+    <p>
+        Bot bonds are issued by the Italian Treasury to raise funds for government spending and are considered a key 
+        instrument in the country's debt management strategy. They are often favored by investors looking for a safe 
+        haven for their capital, as they are backed by the full faith and credit of the Italian government. Due to 
+        their short duration, Bot bonds offer investors liquidity and flexibility in managing their investment portfolios, 
+        with the added benefit of providing a stable source of income through interest payments.
+    </p>
+</div>
+<BondList Instrument="BOT" />
+
+
+@code {
+
+}

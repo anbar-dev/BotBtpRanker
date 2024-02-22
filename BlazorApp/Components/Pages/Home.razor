@@ -1,0 +1,12 @@
+﻿@page "/"
+@using BlazorApp.Components.Pieces
+
+<PageTitle>BotBtpRanker</PageTitle>
+<div class="container-fluid text-primary mb-lg-5">
+    <h1>BotBtpRanker</h1>
+    <p>Discover Top-Yielding Italian Bonds (BOTs and BTPs)</p>
+
+</div>
+
+<BondList Instrument="BOT" NumberOfBondsToShow="5" />
+<BondList Instrument="BTP" NumberOfBondsToShow="5" />
