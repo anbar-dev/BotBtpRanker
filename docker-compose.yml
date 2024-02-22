@@ -7,8 +7,8 @@ services:
       context: .
       dockerfile: BlazorApp/Dockerfile
     ports:
-      - "8080:80"
-      - "8443:443"
+      - "64084:8080"
+      - "64085:8081"
     environment:
      - ASPNETCORE_ENVIRONMENT=Development
   mssql:

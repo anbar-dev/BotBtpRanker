@@ -1,6 +1,6 @@
 # BotBtpRanker
 
-This C# project extracts data related to Italian government bonds (BOT and BTP) from free resources and stores it into a SQL Server database.
+This project extracts data related to Italian government bonds (BOT and BTP) from free resources and stores it into a SQL Server database.
 It provides functionality to retrieve all active bonds at any specific time and sort them by their yield to maturity (feature usually not provided on other platforms), aiding in investment decision-making.
 The UI is a Blazor Web App.
 
@@ -16,16 +16,34 @@ Most websites listing these instruments do not provide this feature (at least no
 - **Database Storage**: Stores the extracted bond data into a SQL Server database for easy retrieval and management.
 - **Dynamic Sorting**: Can sort the current active bonds based on their yield to maturity, expiration date, price or yearly coupon, providing users with insights into investment options.
 
+# README
+
 ## Usage
 
-TBD
+To use this setup, follow these steps:
+
+1. Ensure you have Docker installed on your machine.
+2. Clone this repository to your local machine by running the following command:
+
+    ```bash
+    https://github.com/andrea-baragiola/BotBtpRanker.git
+    ```
+
+3. Open a terminal window inside the root directory of the cloned repository
+4. Run the following command to start the app:
+
+    ```bash
+    docker-compose up
+    ```
+
+6. Once the services are up and running, you can access the Blazor app at `https://localhost:64085`.
+7. You can also access the MSSQL database at `localhost:11433`.
 
 ## Requirements
 
-- (Docker)
-- .NET Framework (compatible version)
-- SQL Server
-- Internet connection for data extraction
+- Docker
+- Internet connection (for downloading Docker images if not already cached)
+
 
 ## Contributing
 
