@@ -8,13 +8,11 @@ public class BondService : IBondService
 {
     private readonly IBondRepository _bondRepository;
     private readonly IBondFetcher _dataFetcher;
-    private readonly IMapper _mapper;
 
-    public BondService(IBondRepository bondRepository, IBondFetcher dataFetcher, IMapper mapper)
+    public BondService(IBondRepository bondRepository, IBondFetcher dataFetcher)
     {
         _bondRepository = bondRepository;
         _dataFetcher = dataFetcher;
-        _mapper = mapper;
     }
 
     // method to be called periodically to update the database

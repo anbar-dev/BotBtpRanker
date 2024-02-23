@@ -13,7 +13,6 @@ public class BondFetcherTests
     private readonly IConfiguration _testConfig;
     private readonly NtpClock _ntpClock;
     private readonly FetcherOptions _fetcherOptions;
-    //private readonly DatabaseOptions _databaseOptions;
     private readonly BondFetcher _bondFetcher;
     public BondFetcherTests()
     {
@@ -28,18 +27,7 @@ public class BondFetcherTests
             .Build();
 
         _fetcherOptions = new FetcherOptions { Base = _testConfig.GetValue<string>("Fetching:Base") };
-        //_databaseOptions = new DatabaseOptions
-        //{
-        //    Host = _testConfig.GetValue<string>("Database:Host"),
-        //    Port = _testConfig.GetValue<string>("Database:Port"),
-        //    Password = _testConfig.GetValue<string>("Database:Password"),
-        //    Userid = _testConfig.GetValue<string>("Database:Userid"),
-        //    UsersDataBase = _testConfig.GetValue<string>("Database:UsersDataBase")
-
-        //};
-
         var fetcherOptionsWrapper = Options.Create(_fetcherOptions);
-        //var databaseOptionsWrapper = Options.Create(_databaseOptions);
         _bondFetcher = new(_ntpClock, fetcherOptionsWrapper);
 
 
