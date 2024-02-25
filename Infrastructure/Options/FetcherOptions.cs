@@ -1,9 +1,8 @@
-﻿namespace Infrastructure.Options
-{
-    public class FetcherOptions
-    {
-        public const string Key = "Fetching";
+﻿namespace Infrastructure.Options;
 
-        public string Base { get; set; } 
-    }
+public class FetcherOptions
+{
+    public const string Key = "Fetching";
+
+    public string Base { get; set; } 
 }

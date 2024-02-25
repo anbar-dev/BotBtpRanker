@@ -11,6 +11,9 @@ using System.Text.RegularExpressions;
 
 namespace Infrastructure.Fetcher;
 
+/// <summary>
+/// Represents a service for fetching bonds.
+/// </summary>
 public class BondFetcher : IBondFetcher
 {
     private readonly NtpClock _ntpClock;
@@ -21,7 +24,7 @@ public class BondFetcher : IBondFetcher
         _ntpClock = ntpClock;
         _fetcherOptions = fetcherOptions.Value;
     }
-
+    /// <inheritdoc />
     public async Task<IEnumerable<BondSnapshot>> FetchBondsAsync(string typeOfBond)
     {
         string destination = _fetcherOptions.Base + typeOfBond;
@@ -58,7 +61,7 @@ public class BondFetcher : IBondFetcher
         return bonds;
     }
 
-
+    // PRIVATE METHODS
     private BondSnapshot ExtractBondSnap(string bondUrl, string typeOfBond)
     {
         DateTime utcDateTime = _ntpClock.UtcNow.UtcDateTime;

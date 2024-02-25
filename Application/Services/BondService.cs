@@ -3,19 +3,20 @@ using Domain.Entities;
 using AutoMapper;
 
 namespace Application.Services;
-
+/// <summary>
+/// Represents a service for managing bonds.
+/// </summary>
 public class BondService : IBondService
 {
     private readonly IBondRepository _bondRepository;
     private readonly IBondFetcher _dataFetcher;
-
     public BondService(IBondRepository bondRepository, IBondFetcher dataFetcher)
     {
         _bondRepository = bondRepository;
         _dataFetcher = dataFetcher;
     }
 
-    // method to be called periodically to update the database
+    /// <inheritdoc />
     public async Task AcquireBondSnapshotsAsync(string typeOfBond)
     {
         // fetch the bond data
@@ -34,7 +35,7 @@ public class BondService : IBondService
         // store the bond snapshots in the database
         _bondRepository.StoreBondSnapshots(bondsnapshots, typeOfBond);
     }
-
+    /// <inheritdoc />
     public async Task<IList<Bond>> GetBonds(string typeOfBond)
     {
         IList<Bond> bonds = await _bondRepository.GetActiveBondsAsync(typeOfBond);

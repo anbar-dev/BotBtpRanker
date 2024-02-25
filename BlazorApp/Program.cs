@@ -6,7 +6,7 @@ using Infrastructure;
 using Infrastructure.Options;
 using System.Globalization;
 
-
+// Set the default culture to Italian
 var cultureInfo = new CultureInfo("it-IT");
 cultureInfo.NumberFormat.CurrencySymbol = "€";
 
@@ -19,10 +19,11 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddRazorComponents()
     .AddInteractiveServerComponents();
 
-// add sevices from different layers
+// Add sevices from different layers
 builder.Services.AddInfrastructureServices();
 builder.Services.AddApplicationServices();
 
+// Configure options from appsettings.json
 builder.Services.Configure<FetcherOptions>(
     builder.Configuration.GetSection(FetcherOptions.Key));
 
@@ -30,11 +31,11 @@ builder.Services.Configure<DatabaseOptions>(
     builder.Configuration.GetSection(DatabaseOptions.Key));
 
 //add hosted service to periodically fetch new data
-builder.Services.AddHostedService<TimedDataFetcher>();  //TEMPORARILY COMMENTED OUT TO AVOID CONSTANT FETCHING AT EVERY LAUNCH
+builder.Services.AddHostedService<TimedDataFetcher>();
 
 var app = builder.Build();
 
-// check db and tables existence
+// Check database and tables existence
 IBondRepository bondRepository = app.Services.GetRequiredService<IBondRepository>();
 bondRepository.CreateDatabaseIfNotExists();
 bondRepository.CreateTablesIfNotExists();

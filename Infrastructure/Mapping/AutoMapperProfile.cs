@@ -2,15 +2,14 @@
 using Domain.Entities;
 using Infrastructure.Repository.Models;
 
-namespace Infrastructure.Mapping
+namespace Infrastructure.Mapping;
+
+public class AutoMapperProfile : Profile
 {
-    public class AutoMapperProfile : Profile
+    public AutoMapperProfile()
     {
-        public AutoMapperProfile()
-        {
-            CreateMap<BondSnapshot, BondSnapshotDbModel>().ReverseMap();
-            CreateMap<Bond, BondDbModel>().ReverseMap();
-            CreateMap<BondValues, BondValuesDbModel>().ReverseMap();
-        }
+        CreateMap<BondSnapshot, BondSnapshotDbModel>().ReverseMap();
+        CreateMap<Bond, BondDbModel>().ReverseMap();
+        CreateMap<BondValues, BondValuesDbModel>().ReverseMap();
     }
 }

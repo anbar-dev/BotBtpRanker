@@ -9,7 +9,9 @@ using Microsoft.Extensions.Options;
 using System.Data;
 
 namespace Infrastructure.Repository;
-
+/// <summary>
+/// Represents a service for storing bonds.
+/// </summary>
 public class BondRepository : IBondRepository
 {
     private readonly string _cointainerConnectionString;
@@ -27,8 +29,7 @@ public class BondRepository : IBondRepository
         _databaseConnectionString = $"Server={_databaseOptions.Host};Database={_databaseOptions.UsersDataBase};User={_databaseOptions.Userid};Password={_databaseOptions.Password};Encrypt=False";
     }
 
-
-    // PUBLIC METHODS (INTERFACE)
+    /// <inheritdoc />
     public void CreateDatabaseIfNotExists()
     {
         using (IDbConnection connection = new SqlConnection(_cointainerConnectionString))
@@ -45,7 +46,7 @@ public class BondRepository : IBondRepository
             connection.Execute(query);
         }
     }
-
+    /// <inheritdoc />
     public void CreateTablesIfNotExists()
     {
         using (IDbConnection connection = new SqlConnection(_databaseConnectionString))
@@ -84,7 +85,7 @@ public class BondRepository : IBondRepository
             connection.Execute(query);
         }
     }
-
+    /// <inheritdoc />
     public async Task<IList<Bond>> GetActiveBondsAsync(string typeOfBond)
     {
         // get all active orders for a bond type
@@ -106,6 +107,7 @@ public class BondRepository : IBondRepository
 
         return bonds;
     }
+    /// <inheritdoc />
     public void StoreBondSnapshots(IEnumerable<BondSnapshot> bondSnapshots, string typeOfBond)
     {
         using (IDbConnection connection = new SqlConnection(_databaseConnectionString))

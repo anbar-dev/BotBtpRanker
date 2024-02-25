@@ -364,3 +364,6 @@ FodyWeavers.xsd
 /Tests/appsettings-test.json
 /BlazorApp/appsettings.Development.json
 /BlazorApp/appsettings.Production.json
+
+docfx/
+_docfx/

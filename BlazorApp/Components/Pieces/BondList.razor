@@ -19,12 +19,12 @@
     </div>
 
     @if (bonds == null || bonds.Count == 0)
-    {
-        <p><em>Loading...</em></p>
-    }
-    else
-    {
-        <table class="table table-bordered border-dark table-striped table-hover bg-secondary bg-opacity-10 mt-3">
+{
+    <p><em>Loading...</em></p>
+}
+else
+{
+    <table class="table table-bordered border-dark table-striped table-hover bg-secondary bg-opacity-10 mt-3">
             <thead>
                 <tr>
                     <th>ISIN</th>
@@ -37,8 +37,8 @@
             </thead>
             <tbody>
                 @for (int i = 0; i < NumberOfBondsToShow; i++)
-                {
-                    <tr>
+            {
+                <tr>
                         <td>@bonds[i].Isin</td>
                         <td>@bonds[i].Name</td>
                         <td>@DateOnly.FromDateTime(bonds[i].Expiration)</td>
@@ -46,58 +46,58 @@
                         <td>@bonds[i].HistoricalValues.Last().Price</td>
                         <td>@bonds[i].HistoricalValues.Last().Yield</td>
                     </tr>
-                }
+            }
             </tbody>
         </table>
-        @if (bonds.Count != NumberOfBondsToShow)
-        {
-            <p> <a href="/@Instrument">See all @(Instrument + "s")</a></p>
-        }
-
-
+    @if (bonds.Count != NumberOfBondsToShow)
+    {
+        <p> <a href="/@Instrument">See all @(Instrument + "s")</a></p>
     }
+
+
+}
 </div>
 
 @code {
-    [Parameter]
-    public string Instrument { get; set; }
+[Parameter]
+public string Instrument { get; set; }
 
-    [Parameter]
-    public int? NumberOfBondsToShow { get; set; }
+[Parameter]
+public int? NumberOfBondsToShow { get; set; }
 
-    private IList<Bond> bonds;
+private IList<Bond> bonds;
 
-    protected override async Task OnInitializedAsync()
+protected override async Task OnInitializedAsync()
+{
+    if (bonds == null)
     {
-        if (bonds == null)
-        {
-            bonds = await bondService.GetBonds(Instrument);
+        bonds = await bondService.GetBonds(Instrument);
+        bonds = bonds.OrderByDescending(b => b.HistoricalValues.Last().Yield).ToList();
+    }
+
+    if (NumberOfBondsToShow == null || NumberOfBondsToShow > bonds.Count)
+    {
+        NumberOfBondsToShow = bonds.Count;
+    }
+}
+
+private void SortBySelection(ChangeEventArgs e)
+{
+    switch (e.Value)
+    {
+        case "Yield":
             bonds = bonds.OrderByDescending(b => b.HistoricalValues.Last().Yield).ToList();
-        }
-
-        if (NumberOfBondsToShow == null || NumberOfBondsToShow > bonds.Count)
-        {
-            NumberOfBondsToShow = bonds.Count;
-        }
+            break;
+        case "Price":
+            bonds = bonds.OrderBy(b => b.HistoricalValues.Last().Price).ToList();
+            break;
+        case "Expiration":
+            bonds = bonds.OrderBy(b => b.Expiration).ToList();
+            break;
+        case "YearlyCoupon":
+            bonds = bonds.OrderByDescending(b => b.YearlyCoupon).ToList();
+            break;
     }
 
-    private void SortBySelection(ChangeEventArgs e)
-    {
-        switch (e.Value)
-        {
-            case "Yield":
-                bonds = bonds.OrderByDescending(b => b.HistoricalValues.Last().Yield).ToList();
-                break;
-            case "Price":
-                bonds = bonds.OrderBy(b => b.HistoricalValues.Last().Price).ToList();
-                break;
-            case "Expiration":
-                bonds = bonds.OrderBy(b => b.Expiration).ToList();
-                break;
-            case "YearlyCoupon":
-                bonds = bonds.OrderByDescending(b => b.YearlyCoupon).ToList();
-                break;
-        }
-
-    }
+}
 }
