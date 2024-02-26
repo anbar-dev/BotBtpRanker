@@ -4,6 +4,9 @@ This project extracts data related to Italian government bonds (BOT and BTP) fro
 It provides functionality to retrieve all active bonds at any specific time and sort them by their yield to maturity (feature usually not provided on other platforms), aiding in investment decision-making.
 The UI is a Blazor Web App.
 
+## Documentation
+See the full documentation here: [BotBtpRanker Docs](https://anbar-dev.github.io/botbtpranker/api/Application.html)
+
 ## Why use BotBtpRanker?
 
 **To quickly find the Italian government bonds with the highest yield to maturity.**
@@ -24,13 +27,15 @@ Most websites listing these instruments do not provide this feature (at least no
 
 ## Usage
 
+(**Note: for the app to work you will need to add the correct data in the appsettings.json file, contact me for it.**)
+
 To use this, follow these steps:
 
 1. Ensure you have Docker installed on your machine.
 2. Clone this repository to your local machine by running the following command:
 
     ```bash
-    git clone https://github.com/andrea-baragiola/BotBtpRanker.git
+    git clone https://github.com/anbar-dev/BotBtpRanker.git
     ```
 
 3. Open a terminal window inside the root directory of the cloned repository
@@ -42,6 +47,13 @@ To use this, follow these steps:
 
 6. Once the services are up and running, you can access the Blazor app at `https://localhost:64085`.
 7. You can also access the MSSQL database at `localhost:11433`.
+
+## Clone this
+Clone this repository to your local machine by running the following command:
+
+```bash
+git clone https://github.com/anbar-dev/BotBtpRanker.git
+```
 
 ## Requirements
 
