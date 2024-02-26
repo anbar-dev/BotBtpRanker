@@ -6,7 +6,7 @@ using Infrastructure;
 using Infrastructure.Options;
 using System.Globalization;
 
-// Set the default culture to Italian
+// Set the default culture to Italian 
 var cultureInfo = new CultureInfo("it-IT");
 cultureInfo.NumberFormat.CurrencySymbol = "€";
 
